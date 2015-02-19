@@ -1,6 +1,6 @@
 # vim: set fileencoding=utf-8 :
 #
-# (C) 2007,2009 Guido Guenther <agx@sigxcpu.org>
+# (C) 2007,2009,2015 Guido Guenther <agx@sigxcpu.org>
 #    This program is free software; you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation; either version 2 of the License, or
@@ -112,7 +112,7 @@ class Command(object):
         @type quiet: C{bool}
 
         >>> Command("/bin/true")(["foo", "bar"])
-        >>> Command("/foo/bar")(quiet=True)
+        >>> Command("/foo/bar")(quiet=True)         # doctest:+IGNORE_EXCEPTION_DETAIL
         Traceback (most recent call last):
         ...
         CommandExecFailed
@@ -128,6 +128,7 @@ class Command(object):
         >>> Command("/bin/true").call(["foo", "bar"])
         0
         >>> Command("/foo/bar").call(["foo", "bar"]) # doctest:+ELLIPSIS
+        ...                                          # doctest:+IGNORE_EXCEPTION_DETAIL
         Traceback (most recent call last):
         ...
         CommandExecFailed: Execution failed: ...
